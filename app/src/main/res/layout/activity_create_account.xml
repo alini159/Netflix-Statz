@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.setflixstatzsplash.LoginActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Cadastro"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp"
+            android:textColor="@color/black"/>
+
+        <ImageView
+            android:layout_width="200dp"
+
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/cadastro" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/cadastroNome"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/login_edittext_bg"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:hint="Nome Completo"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/cadastroDataNascimento"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/login_edittext_bg"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:inputType="date"
+            android:textColorHint="@color/white"
+            android:hint="Data de Nascimento"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/cadastroEmail"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/login_edittext_bg"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/white"
+            android:hint="E-mail"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/cadastroSenha"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/login_edittext_bg"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:inputType="textPassword"
+            android:textColorHint="@color/white"
+            android:hint="Senha"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCadCadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_button_bg"
+            android:text="Cadastrar"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"/>
+
+    </LinearLayout>
+
+
+</ScrollView>

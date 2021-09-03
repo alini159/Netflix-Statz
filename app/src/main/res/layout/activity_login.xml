@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.setflixstatzsplash.LoginActivity">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:src="@mipmap/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp"
+            android:textColor="@color/black"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/loginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/login_edittext_bg"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:hint="Email"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/loginSenha"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/login_edittext_bg"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:hint="Senha"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLogEntrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_button_bg"
+            android:text="Entrar"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLogCadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:text="Cadastrar"
+            android:background="@drawable/register_button_bg"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/logEsqueceuSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grayColor"
+            android:text="Esqueceu sua Senha ?"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+
+</ScrollView>

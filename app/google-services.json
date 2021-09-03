@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "877309160617",
+    "project_id": "netflix-statz-kotlin",
+    "storage_bucket": "netflix-statz-kotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877309160617:android:8cec3412f9d5457eae0db8",
+        "android_client_info": {
+          "package_name": "com.example.netflix_statz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877309160617-tglenrahl0e3ujfanqfsckk81bfb5fgl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.netflix_statz",
+            "certificate_hash": "4e180bef0c00c507520ce75ec4ae1e2ebf3d5659"
+          }
+        },
+        {
+          "client_id": "877309160617-sodl3ds7q5576i1jtpfvltr6mnptju56.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN7bYQCuzbTwEpm_pH0Gbtt4kGzTerDZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877309160617-sodl3ds7q5576i1jtpfvltr6mnptju56.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
