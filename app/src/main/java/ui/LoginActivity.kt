@@ -1,5 +1,6 @@
-package com.example.netflix_statz
+package ui
 
+import ui.PopularMovie.MainActivity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Build
@@ -15,6 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import com.example.netflix_statz.R
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
@@ -101,7 +103,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private fun atualizaUi(){
-        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }

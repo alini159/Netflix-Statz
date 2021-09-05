@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.netflix_statz">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,11 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NetflixStatz">
-        <activity android:name=".ForgotPasswordActivity"></activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name="ui.PopularMovie.MainActivity"></activity>
+        <activity android:name="ui.SingleMovie.SingleMovie" />
+        <activity android:name="ui.ForgotPasswordActivity" />
+        <activity android:name="ui.CreateAccountActivity" />
+        <activity android:name="ui.LoginActivity" />
+        <activity android:name="ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
