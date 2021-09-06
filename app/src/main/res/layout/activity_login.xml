@@ -53,6 +53,7 @@
             android:paddingLeft="10dp"
             android:layout_marginRight="30dp"
             android:textAlignment="textStart"
+            android:inputType="textPassword"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:hint="Senha"/>

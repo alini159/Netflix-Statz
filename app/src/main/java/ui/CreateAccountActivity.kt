@@ -14,6 +14,7 @@ import com.example.netflix_statz.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import realtimeDatabase.RealTimeDataBase as RealTimeDataBase1
 
 class CreateAccountActivity : AppCompatActivity() {
 
@@ -25,11 +26,13 @@ class CreateAccountActivity : AppCompatActivity() {
     private var btnCadastrar : Button? = null
     private var mProgressBar : ProgressDialog? = null
     //Banco de Dados
+    private var realTimeDataBase : RealTimeDataBase1? = null
     private var mDatabaseReference: DatabaseReference? =null
     private var mDatabase: FirebaseDatabase? = null
     private var mAuth: FirebaseAuth? = null
     private val TAG = "CreateAccountActivity"
     //Variaveis Globais
+    private var uid : String? = null
     private var nome : String? = null
     private var dataNascimento : String? = null
     private var email : String? = null
@@ -49,6 +52,8 @@ class CreateAccountActivity : AppCompatActivity() {
         etCadastroSenha = findViewById(R.id.cadastroSenha) as EditText
         btnCadastrar = findViewById(R.id.btnCadCadastrar) as Button
         mProgressBar = ProgressDialog(this)
+
+
 
         mDatabase = FirebaseDatabase.getInstance()
         mDatabaseReference = mDatabase!!.reference.child("Users")
@@ -79,13 +84,18 @@ class CreateAccountActivity : AppCompatActivity() {
             if (task.isSuccessful){
                 Log.d(TAG,"CrateUserWithEmailAndPassword:Sucess")
 
-                val userId = mAuth!!.currentUser!!.uid
+                uid = mAuth!!.currentUser!!.uid
 
                 //Verificar se o usuario vericficou o email
                 verificarEmail()
 
-                val currentUserDb = mDatabaseReference!!.child(userId)
-                currentUserDb.child("nome completo").setValue(nome)
+                //armazena os dados da primeira conta
+                realTimeDataBase = realtimeDatabase.RealTimeDataBase(uid!!)
+                realTimeDataBase?.createProfile(nome!!, email!!, dataNascimento!!, true)
+
+
+
+                //.child("nome completo").setValue("Watchlist")
 
                 //Atualizar as informações no banco de dados
                 atualizarUsuarioInfoeUi()
@@ -101,6 +111,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
         //Iniciar uma nova Activity
         val intent = Intent(this@CreateAccountActivity,  MainActivity::class.java)
+        intent.putExtra("userId", uid!!)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }

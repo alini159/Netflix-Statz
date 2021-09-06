@@ -104,6 +104,7 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun atualizaUi(){
         val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("userId", mAuth!!.currentUser!!.uid)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }
