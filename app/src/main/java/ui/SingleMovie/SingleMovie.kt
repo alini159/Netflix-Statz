@@ -13,6 +13,7 @@ import data.api.POSTER_BASE_URL
 import data.api.TheMovieDBClient
 import data.api.TheMovieDBInterface
 import data.repository.NetworkState
+import data.vo.Movie
 import data.vo.MovieDetails
 import kotlinx.android.synthetic.main.activity_single_movie.*
 import realtimeDatabase.RealTimeDataBase
@@ -25,7 +26,7 @@ class SingleMovie : AppCompatActivity() {
     private lateinit var movieRepository: MovieDetailsRepository
     private var realTimeDataBase : RealTimeDataBase? = null
     private var movieId : Int =0
-    private lateinit var movieName: String
+    private lateinit var movieName: MovieDetails
 
 
 
@@ -45,7 +46,7 @@ class SingleMovie : AppCompatActivity() {
 
         viewModel.movieDetails.observe(this, Observer {
             bindUI(it)
-            movieName = it.title
+            movieName = it
         })
 
         viewModel.networkState.observe(this, Observer {

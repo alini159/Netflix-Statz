@@ -6,12 +6,15 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NetflixStatz">
-        <activity android:name="ui.PopularMovie.MainActivity"></activity>
+        <activity android:name="ui.PerfilActivity"></activity>
+        <activity android:name="ui.Watchlist" />
+        <activity android:name="ui.WatchlistActivity" />
+        <activity android:name="ui.PopularMovie.MainActivity" />
         <activity android:name="ui.SingleMovie.SingleMovie" />
         <activity android:name="ui.ForgotPasswordActivity" />
         <activity android:name="ui.CreateAccountActivity" />

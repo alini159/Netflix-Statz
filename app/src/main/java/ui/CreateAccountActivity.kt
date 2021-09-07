@@ -26,6 +26,7 @@ class CreateAccountActivity : AppCompatActivity() {
     private var btnCadastrar : Button? = null
     private var mProgressBar : ProgressDialog? = null
     //Banco de Dados
+
     private var realTimeDataBase : RealTimeDataBase1? = null
     private var mDatabaseReference: DatabaseReference? =null
     private var mDatabase: FirebaseDatabase? = null
@@ -79,6 +80,8 @@ class CreateAccountActivity : AppCompatActivity() {
         mProgressBar!!.show()
 
         mAuth!!.createUserWithEmailAndPassword(email!!, senha!!).addOnCompleteListener(this){ task ->
+
+
             mProgressBar!!.hide()
 
             if (task.isSuccessful){
@@ -91,11 +94,10 @@ class CreateAccountActivity : AppCompatActivity() {
 
                 //armazena os dados da primeira conta
                 realTimeDataBase = realtimeDatabase.RealTimeDataBase(uid!!)
-                realTimeDataBase?.createProfile(nome!!, email!!, dataNascimento!!, true)
+                mDatabaseReference!!.child("nome").setValue(nome)
+                mDatabaseReference!!.child("email").setValue(email)
+                mDatabaseReference!!.child("data").setValue(dataNascimento)
 
-
-
-                //.child("nome completo").setValue("Watchlist")
 
                 //Atualizar as informações no banco de dados
                 atualizarUsuarioInfoeUi()
@@ -110,10 +112,11 @@ class CreateAccountActivity : AppCompatActivity() {
     private fun atualizarUsuarioInfoeUi(){
 
         //Iniciar uma nova Activity
-        val intent = Intent(this@CreateAccountActivity,  MainActivity::class.java)
+        val intent = Intent(this@CreateAccountActivity,  LoginActivity::class.java)
         intent.putExtra("userId", uid!!)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
+        this.finish()
     }
 
     private fun verificarEmail(){

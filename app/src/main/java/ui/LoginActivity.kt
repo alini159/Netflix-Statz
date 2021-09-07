@@ -18,6 +18,9 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.example.netflix_statz.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import realtimeDatabase.RealTimeDataBase
 
 class LoginActivity : AppCompatActivity() {
 
@@ -38,8 +41,11 @@ class LoginActivity : AppCompatActivity() {
     private var tvEsqueceuSenha : TextView? = null
 
     //Banco de Dados
-
     private var mAuth : FirebaseAuth? = null
+    private var mDatabaseReference: DatabaseReference? =null
+    private var mDatabase: FirebaseDatabase? = null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,15 +59,16 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun inicializaComponentes(){
+
         etLoginEmail = findViewById(R.id.loginEmail) as EditText
         etLoginSenha = findViewById(R.id.loginSenha) as EditText
         btnEntrar = findViewById(R.id.btnLogEntrar) as Button
         btnCadastrar = findViewById(R.id.btnLogCadastrar) as Button
         tvEsqueceuSenha = findViewById(R.id.logEsqueceuSenha) as TextView
         mProgressBar = ProgressDialog(this)
-
+        mDatabase = FirebaseDatabase.getInstance()
+        mDatabaseReference = mDatabase!!.reference.child("Users")
         mAuth = FirebaseAuth.getInstance()
-
         tvEsqueceuSenha!!
             .setOnClickListener { startActivity(Intent(this@LoginActivity, ForgotPasswordActivity::class.java)) }
 
@@ -103,10 +110,21 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private fun atualizaUi(){
-        val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("userId", mAuth!!.currentUser!!.uid)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        startActivity(intent)
+
+        mDatabaseReference!!
+            .child("nome").get().addOnSuccessListener {
+                val intent = Intent(this, PerfilActivity::class.java)
+                intent.putExtra("userName", "${it.value}")
+                intent.putExtra("userId", mAuth!!.currentUser!!.uid)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
+                this.finish()
+                Log.i("firebase", "Got value ${it.value}")
+            }.addOnFailureListener{
+                Log.e("firebase", "Error getting data", it)
+            }.toString()
+
+
     }
 
 

@@ -29,6 +29,7 @@ class PopularMoviePagedListAdapter(public val context: Context, val userId: Stri
     private var networkState: NetworkState? = null
 
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view: View
@@ -43,6 +44,15 @@ class PopularMoviePagedListAdapter(public val context: Context, val userId: Stri
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (getItemViewType(position) == MOVIE_VIEW_TYPE) {
+            (holder as MovieItemViewHolder).bind(getItem(position),context, uid)
+        }
+        else {
+            (holder as NetworkStateItemViewHolder).bind(networkState)
+        }
+    }
+
+     fun onBindViewHolderWatchlist(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == MOVIE_VIEW_TYPE) {
             (holder as MovieItemViewHolder).bind(getItem(position),context, uid)
         }

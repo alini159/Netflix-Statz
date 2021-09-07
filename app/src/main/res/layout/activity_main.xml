@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context="ui.PopularMovie.MainActivity">
 
     <LinearLayout
@@ -28,27 +29,41 @@
             android:visibility="gone"/>
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="50dp"
     android:orientation="horizontal"
-    android:layout_gravity="center"
+    android:layout_gravity="end"
+    android:gravity="center"
+    android:background="@color/white"
     >
 
     <EditText
         android:id="@+id/search"
-        android:layout_width="300dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
         android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
         android:hint="Pesquisar"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/white" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:background="@drawable/buscar"
         android:id="@+id/btnSearch"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="match_parent"
-        android:layout_gravity= "center"
-        />
+        android:layout_gravity="center"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/search" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnwatchlist"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/watch_later" />
+
 </LinearLayout>
 
 
